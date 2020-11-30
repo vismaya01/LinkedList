@@ -20,6 +20,17 @@ public class MyLinkedList {
 		}
 	}
 	
+	public void append(INode newNode) {
+		if(head == null) 
+			this.head = newNode;
+		if(tail == null)
+			this.tail=newNode;
+		else {
+			this.tail.setNext(newNode);
+			this.tail=newNode;
+		}
+	}
+	
 	public void printMyNodes() {
 		StringBuilder myNodes = new StringBuilder("My Nodes: ");
 		INode tempNode = head;
