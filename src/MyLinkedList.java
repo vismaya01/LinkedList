@@ -53,6 +53,21 @@ public class MyLinkedList {
 		return tempNode;
 	}
 	
+	public INode popBetween(INode myNode) {
+		INode tempNode = this.head;
+		INode popNode = null;
+		while(tempNode.getNext() != null) {
+			if(tempNode.getNext().equals(myNode)) {
+				INode temp1Node = myNode.getNext();
+				tempNode.setNext(temp1Node);
+				popNode = myNode;
+				break;
+			}
+			tempNode = tempNode.getNext(); 
+		}
+		return popNode;
+	}
+	
 	public INode search(INode myNode) {
 		INode tempNode = this.head;
 		while(tempNode.getNext() != null) {
@@ -61,6 +76,16 @@ public class MyLinkedList {
 			tempNode = tempNode.getNext();
 		}
 		return tempNode;
+	}
+	
+	public void size(){
+		INode tempNode = this.head;
+		Integer count = 0;
+		while(tempNode != null) {
+			count = count + 1;
+			tempNode = tempNode.getNext();
+		}
+		System.out.println(count);
 	}
 	
 	public void printMyNodes() {
